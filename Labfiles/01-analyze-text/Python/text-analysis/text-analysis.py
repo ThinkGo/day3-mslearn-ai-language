@@ -13,7 +13,6 @@ def main():
         ai_key = os.getenv('AI_SERVICE_KEY')
 
         # Create client using endpoint and key
-        # Create client using endpoint and key
         credential = AzureKeyCredential(ai_key)
         ai_client = TextAnalyticsClient(endpoint=ai_endpoint, credential=credential)
 
@@ -36,7 +35,6 @@ def main():
 
 
             # Get key phrases
-            # Get key phrases
             phrases = ai_client.extract_key_phrases(documents=[text])[0].key_phrases
             if len(phrases) > 0:
                     print("\nKey Phrases:")
@@ -44,7 +42,6 @@ def main():
                         print('\t{}'.format(phrase))
 
 
-            # Get entities
             # Get entities
             entities = ai_client.recognize_entities(documents=[text])[0].entities
             if len(entities) > 0:
